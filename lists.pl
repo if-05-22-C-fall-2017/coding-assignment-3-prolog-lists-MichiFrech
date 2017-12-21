@@ -22,3 +22,9 @@ prepend(E, T, [E,T]).
 
 addElement([], E, [E]).
 addElement([H|T], E, [H|ExtendedTail]) :- addElement(T, E, ExtendedTail).
+
+remove([X|T], X, T).
+remove([H|T], X, [H|T2]) :- remove(T, X, T2).
+
+hasLength([], 0).
+hasLength([_|T], X) :- hasLength(T, X2), X is X2+1.
